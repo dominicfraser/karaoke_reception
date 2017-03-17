@@ -65,7 +65,16 @@ class TestDesk < Minitest::Test
       @party1.add_guest(@guest1)
       @party1.add_guest(@guest2) 
       assert_equal(true, @desk1.can_party_afford?(@package3, @party1))
-    end
+  end
+
+  def test_take_payment
+    @party1.add_guest(@guest1)
+    @party1.add_guest(@guest2)
+    @desk1.take_payment(@party1, @package3)
+    assert_equal(10,@guest1.wallet)
+    assert_equal(220,@desk1.cash)
+  end
+
 
 
 

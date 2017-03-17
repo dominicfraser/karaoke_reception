@@ -40,6 +40,11 @@ class Desk
     package.cost < party.dutch_pay_wallet ? true : false
   end
 
+  def take_payment(party, package)
+    @cash += package.cost
+    cost_per_guest = package.cost / party.guests.length
+    party.remove_cash_from_each_guest(cost_per_guest)
+  end
 
 end
 
