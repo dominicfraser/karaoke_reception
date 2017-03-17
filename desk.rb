@@ -46,5 +46,10 @@ class Desk
     party.remove_cash_from_each_guest(cost_per_guest)
   end
 
+  def assign_to_room(party, room)
+    party.guests.each {|guest| room.current_guests << guest}
+  end
+
+
 end
 
