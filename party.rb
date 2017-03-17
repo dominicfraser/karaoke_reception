@@ -2,19 +2,21 @@
 
 class Party 
 
-  attr_reader :guests, :lowest_wallet
+  attr_reader :guests, :lowest_wallet, :dutch_pay_wallet
   attr_accessor :chosen_package
 
   def initialize(guests=[])
     @guests = [guests].flatten
     @lowest_wallet = 0
     self.update_lowest_wallet
+    @dutch_pay_wallet = @lowest_wallet * @guests.length
     @chosen_package = {}
   end
 
   def add_guest(guest)
     @guests << guest
     self.update_lowest_wallet
+    self.update_dutch_pay_wallet
   end
 
 
@@ -27,6 +29,10 @@ class Party
 
   def remove_cash_from_each_guest(amount)
     @guests.map { |guest| guest.wallet -= amount }
+  end
+
+  def update_dutch_pay_wallet()
+    @dutch_pay_wallet = @lowest_wallet * @guests.length
   end
 
 end

@@ -51,4 +51,11 @@ class TestParty < Minitest::Test
     assert_equal(10, @guest1.wallet)
   end
 
+  def test_dutch_pay_updates_when_guest_added
+    @party1.add_guest(@guest1)
+    @party1.add_guest(@guest2)
+    assert_equal(38, @party1.dutch_pay_wallet)
+  end
+
+
 end

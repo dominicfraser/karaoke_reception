@@ -36,6 +36,10 @@ class Desk
     party.chosen_package = @available_packages.select {|k,v| k = time}
   end 
 
+  def can_party_afford?(package, party)
+    if package.cost < party.dutch_pay_wallet
+      ###test dutch_pay_wallet first
+
 
 end
 
