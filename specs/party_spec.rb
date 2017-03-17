@@ -28,4 +28,11 @@ class TestParty < Minitest::Test
     assert_equal(19, @party1.lowest_wallet)
   end
 
+  def test_update_lowest_wallet_initialize
+    @party1.add_guest(@guest1)
+    @party1.add_guest(@guest2)
+
+    assert_equal(19, @party1.lowest_wallet)
+  end
+
 end

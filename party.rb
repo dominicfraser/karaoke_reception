@@ -7,7 +7,7 @@ class Party
   def initialize()
     @guests = []
     @lowest_wallet = 0
-    #@lowest_wallet.update_lowest_wallet
+    @lowest_wallet.update_lowest_wallet
   end
 
   def add_guest(guest)
