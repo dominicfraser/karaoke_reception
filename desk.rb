@@ -8,8 +8,11 @@ class Desk
     @cash = cash
     @host_name = ""
     @available_packages = {}
+    self.set_host_name
   end
 
-
+  def set_host_name
+    @host_name = gets.strip.capitalize
+  end
 
 end
