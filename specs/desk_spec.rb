@@ -17,7 +17,8 @@ class TestDesk < Minitest::Test
     @guest2 = Guest.new("Sam",19,@song2)
     @party1 = Party.new()
     @room1 = Room.new("first_room", 3)
-    @desk1 = Desk.new(@room1, 200)
+    @room2 = Room.new("first_room", 3)
+    @desk1 = Desk.new([@room1, @room2], 200,@party1)
     @package1 = Package.new(60, 50)
     @package2 = Package.new(120, 85) 
   end
@@ -29,6 +30,15 @@ class TestDesk < Minitest::Test
   def test_add_package
     @desk1.add_package(@package1)
     assert_equal({60 => 50}, @desk1.available_packages)
+  end
+
+  def test_is_room_available_when_full
+    @room1.current_guests = [1,2,3]
+    @room2.current_guests = [1,2,3]
+    @party1.add_guest(@guest1)
+    @party1.add_guest(@guest2)
+
+    assert_equal(false, @desk1.room_available?)
   end
 
 
