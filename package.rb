@@ -1,4 +1,4 @@
-class Packages
+class Package
 
   attr_reader :length, :name
 
