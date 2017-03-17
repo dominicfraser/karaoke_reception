@@ -4,14 +4,15 @@ class Party
 
   attr_reader :guests, :lowest_wallet
 
-  def initialize()
-    @guests = []
+  def initialize(guests=[])
+    @guests = [guests].flatten
     @lowest_wallet = 0
-    @lowest_wallet.update_lowest_wallet
+    self.update_lowest_wallet
   end
 
   def add_guest(guest)
     @guests << guest
+    self.update_lowest_wallet
   end
 
 
@@ -19,7 +20,7 @@ class Party
     total_wallet = []
     @guests.each { |guest| 
       total_wallet += [guest.wallet] }
-    @lowest_wallet = total_wallet.min
+    @lowest_wallet = total_wallet.min || 0
   end
 
 

@@ -14,6 +14,7 @@ class TestParty < Minitest::Test
     @song1 = Song.new("song1",2.5)
     @song2 = Song.new("song2",2)
     @party1 = Party.new()
+    @party2 = Party.new(@guest1)
   end
 
   def test_add_guest_to_party
@@ -28,11 +29,14 @@ class TestParty < Minitest::Test
     assert_equal(19, @party1.lowest_wallet)
   end
 
-  def test_update_lowest_wallet_initialize
+  def test_update_lowest_wallet_initialize_no_guests
     @party1.add_guest(@guest1)
     @party1.add_guest(@guest2)
-
     assert_equal(19, @party1.lowest_wallet)
+  end
+
+  def test_update_lowest_wallet_initialize_with_guest
+    assert_equal(20, @party2.lowest_wallet)
   end
 
 end
