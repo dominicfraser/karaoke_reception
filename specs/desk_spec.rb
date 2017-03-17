@@ -16,6 +16,7 @@ class TestDesk < Minitest::Test
     @guest1 = Guest.new("Jake",20,@song1)
     @guest2 = Guest.new("Sam",19,@song2)
     @party1 = Party.new()
+    @party2 = Party.new()
     @room1 = Room.new("first_room", 3)
     @room2 = Room.new("first_room", 3)
     @desk1 = Desk.new([@room1, @room2], 200,@party1)
@@ -90,6 +91,12 @@ class TestDesk < Minitest::Test
     assert_equal([],@room1.current_guests)
   end
 
-
+  def test_checkout_party_not_there
+    @party1.add_guest(@guest1)
+    @party1.add_guest(@guest2)
+    @desk1.assign_to_room(@party1,@room1)
+    @desk1.checkout_party(@party2,@room1)
+    assert_equal([@guest1,@guest2],@room1.current_guests)
+  end
 
 end
