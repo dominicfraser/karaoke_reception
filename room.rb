@@ -9,7 +9,7 @@ class Room
     @playlist = []
     @current_guests = []
     @current_guests_fav_songs = []
-    #self.update_fav_songs
+    self.update_fav_songs
   end
 
   def add_song(song)
