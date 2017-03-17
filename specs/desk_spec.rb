@@ -15,7 +15,7 @@ class TestDesk < Minitest::Test
     @song2 = Song.new("song2",2)
     @guest1 = Guest.new("Jake",20,@song1)
     @guest2 = Guest.new("Sam",19,@song2)
-    @party1 = Party.new()
+    @party1 = Party.new([@guest1,@guest2])
     @party2 = Party.new()
     @room1 = Room.new("first_room", 3)
     @room2 = Room.new("first_room", 3)
@@ -38,15 +38,11 @@ class TestDesk < Minitest::Test
   def test_is_room_available_when_full
     @room1.current_guests = [1,2,3]
     @room2.current_guests = [1,2,3]
-    @party1.add_guest(@guest1)
-    @party1.add_guest(@guest2)
 
     assert_equal(false, @desk1.room_available?)
   end
 
   def test_is_room_available_when_empty
-    @party1.add_guest(@guest1)
-    @party1.add_guest(@guest2)    
     assert_equal(true, @desk1.room_available?)
   end
 
@@ -57,43 +53,31 @@ class TestDesk < Minitest::Test
   end
 
   def test_party_cannot_afford
-    @party1.add_guest(@guest1)
-    @party1.add_guest(@guest2) 
     assert_equal(false, @desk1.can_party_afford?(@package1, @party1))
   end
 
   def test_party_can_afford_true
-      @party1.add_guest(@guest1)
-      @party1.add_guest(@guest2) 
       assert_equal(true, @desk1.can_party_afford?(@package3, @party1))
   end
 
   def test_take_payment
-    @party1.add_guest(@guest1)
-    @party1.add_guest(@guest2)
     @desk1.take_payment(@party1, @package3)
     assert_equal(10,@guest1.wallet)
     assert_equal(220,@desk1.cash)
   end
 
   def test_assign_party_to_room
-    @party1.add_guest(@guest1)
-    @party1.add_guest(@guest2)
     @desk1.assign_to_room(@party1, @room1)
     assert_equal([@guest1,@guest2],@room1.current_guests)
   end
 
   def test_checkout_party_that_is_there
-    @party1.add_guest(@guest1)
-    @party1.add_guest(@guest2)
     @desk1.assign_to_room(@party1,@room1)
     @desk1.checkout_party(@party1,@room1)
     assert_equal([],@room1.current_guests)
   end
 
   def test_checkout_party_not_there
-    @party1.add_guest(@guest1)
-    @party1.add_guest(@guest2)
     @desk1.assign_to_room(@party1,@room1)
     @desk1.checkout_party(@party2,@room1)
     assert_equal([@guest1,@guest2],@room1.current_guests)
