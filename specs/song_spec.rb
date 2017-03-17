@@ -16,4 +16,8 @@ class TestSong < Minitest::Test
     assert_equal("song1", @song1.song_name)
   end
 
+  def test_song_has_length
+    assert_equal(2, @song2.song_length)
+  end
+
 end
