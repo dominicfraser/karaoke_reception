@@ -9,6 +9,8 @@ class TestPackages < Minitest::Test
     @packages2 = Packages.new(120, 85)   
   end
 
-
+  def test_package_length
+    assert_equal(60, @packages1.length)
+  end
 
 end
