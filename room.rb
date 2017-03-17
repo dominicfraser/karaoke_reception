@@ -15,7 +15,8 @@ class Room
   def add_song(song)
     @playlist << song
     @playlist.flatten
-    self.update_fav_songs.uniq! ###will need to update room when new guests also
+    self.update_fav_songs
+    self.current_guests_fav_songs.uniq! ###will need to update room when new guests also
   end
 
   def update_fav_songs

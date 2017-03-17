@@ -11,10 +11,11 @@ require_relative ("../room")
 class TestParty < Minitest::Test
 
   def setup
-    @guest1 = Guest.new("Jake",20,"song1")
-    @guest2 = Guest.new("Sam",19,"song2")
+   
     @song1 = Song.new("song1",2.5)
     @song2 = Song.new("song2",2)
+    @guest1 = Guest.new("Jake",20,@song1)
+    @guest2 = Guest.new("Sam",19,@song2)
     @party1 = Party.new()
     @party2 = Party.new(@guest1)
     @room1 = Room.new("first_room", 3)
@@ -32,7 +33,7 @@ class TestParty < Minitest::Test
 
   def test_update_fav_songs
     @room1.current_guests = [@guest1, @guest2]
-    
+
     @room1.add_song(@song1)
     @room1.add_song(@song2)
     
