@@ -27,7 +27,7 @@ end
 
 def test_add_song_to_playlist
   @room1.add_song(@song1)
-  assert_equal(["@song1"],@room1.playlist)
+  assert_equal([@song1],@room1.playlist)
 end
 
 
