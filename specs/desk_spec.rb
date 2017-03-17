@@ -41,5 +41,10 @@ class TestDesk < Minitest::Test
     assert_equal(false, @desk1.room_available?)
   end
 
+  def test_is_room_available_when_empty
+    @party1.add_guest(@guest1)
+    @party1.add_guest(@guest2)    
+    assert_equal(true, @desk1.room_available?)
+  end
 
 end
