@@ -50,6 +50,11 @@ class Desk
     party.guests.each {|guest| room.current_guests << guest}
   end
 
+  def checkout_party(party, room)
+    return if room.current_guests != party.guests
+    room.current_guests.clear
+  end
+
 
 end
 
