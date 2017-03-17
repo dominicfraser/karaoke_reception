@@ -30,10 +30,13 @@ class TestParty < Minitest::Test
     assert_equal([@song1],@room1.playlist)
   end
 
-  def test_play_all_songs
+  def test_update_fav_songs
+    @room1.current_guests = [@guest1, @guest2]
+    
     @room1.add_song(@song1)
     @room1.add_song(@song2)
-    assert_equal()
+    
+    assert_equal([@song1, @song2], @room1.current_guests_fav_songs)
 
   end
 

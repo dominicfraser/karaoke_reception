@@ -21,4 +21,9 @@ class TestGuest < Minitest::Test
     assert_nil(nil, @guest1.song_reaction(@song2.song_name))
   end
 
+
+
+
+  
+
 end
