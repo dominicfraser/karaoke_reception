@@ -25,7 +25,10 @@ def test_room_has_spaces
   assert_equal(3, @room1.spaces)
 end
 
-
+def test_add_song_to_playlist
+  @room1.add_song(@song1)
+  assert_equal(["@song1"],@room1.playlist)
+end
 
 
 

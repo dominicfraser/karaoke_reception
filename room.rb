@@ -9,7 +9,9 @@ class Room
     @current_guests = []
   end
 
-
+  def add_song(song)
+    @playlist << song
+  end
 
 
 
