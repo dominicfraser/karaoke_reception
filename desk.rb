@@ -16,5 +16,10 @@ class Desk
     @host_name = gets.strip.capitalize
   end
 
+  def add_package(package)
+    @available_packages[package.p_length] = package.cost
+  end
+
+
 end
 

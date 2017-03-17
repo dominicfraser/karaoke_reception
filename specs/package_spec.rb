@@ -10,7 +10,7 @@ class TestPackage < Minitest::Test
   end
 
   def test_package_length
-    assert_equal(60, @package1.length)
+    assert_equal(60, @package1.p_length)
   end
 
 end

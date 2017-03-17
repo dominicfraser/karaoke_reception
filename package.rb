@@ -1,9 +1,9 @@
 class Package
 
-  attr_reader :length, :name
+  attr_reader :p_length, :cost
 
-  def initialize(length, cost)
-    @length = length
+  def initialize(p_length, cost)
+    @p_length = p_length
     @cost = cost
   end
 
