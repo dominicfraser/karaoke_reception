@@ -29,8 +29,8 @@ class Desk
       else
         return true
       end
-    } ? true : false
-  end
+    } 
+  end ##blahh ugly
 
 end
 
