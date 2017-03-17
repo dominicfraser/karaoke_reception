@@ -8,4 +8,11 @@ class Guest
     @fav_song = fav_song
   end
 
+  def song_reaction(song)
+    if song == @fav_song  
+      "Yey!" 
+    end
+  end
+
+
 end
