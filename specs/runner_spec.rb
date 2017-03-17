@@ -3,10 +3,10 @@ require ("minitest/rg")
 require_relative ("../runner")
 
 
-class TestDesk < Minitest::Test
+class TestRunner < Minitest::Test
 
   def setup
-
+    #@runner1 = Runner.new()
   end
 
 
