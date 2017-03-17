@@ -11,7 +11,6 @@ require_relative ("../room")
 class TestParty < Minitest::Test
 
   def setup
-   
     @song1 = Song.new("song1",2.5)
     @song2 = Song.new("song2",2)
     @guest1 = Guest.new("Jake",20,@song1)
@@ -31,18 +30,32 @@ class TestParty < Minitest::Test
     assert_equal([@song1],@room1.playlist)
   end
 
-  def test_update_fav_songs
-    @room1.current_guests = [@guest1, @guest2]
+  def test_play_playlist
+      #did debug but how to test?
+      # @song1 = Song.new("song1",2.5)
+      # @song2 = Song.new("song2",2)
+      # @guest1 = Guest.new("Jake",20,@song1)
+      # @guest2 = Guest.new("Sam",19,@song3)
+      # @room1 = Room.new("first room",3)
+      # @room1.current_guests = [@guest1, @guest2]
+      # @room1.add_song(@song1)
+      # @room1.add_song(@song2)
 
-    @room1.add_song(@song1)
-    @room1.add_song(@song2)
+      # @room1.play_playlist()
+  end
+
+  # def test_update_fav_songs
+  #   @room1.current_guests = [@guest1, @guest2]
+
+  #   @room1.add_song(@song1)
+  #   @room1.add_song(@song2)
     
-    assert_equal([@song1, @song2], @room1.current_guests_fav_songs)
-  end
+  #   assert_equal([@song1, @song2], @room1.current_guests_fav_songs)
+  # end
 
-  def test_update_fav_songs_when_initialize
-  assert_equal([],@room1.current_guests_fav_songs) 
-  end
+  # def test_update_fav_songs_when_initialize
+  # assert_equal([],@room1.current_guests_fav_songs) 
+  # end
 
 
 

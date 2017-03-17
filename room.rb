@@ -1,3 +1,8 @@
+require_relative ("guest")
+require_relative ("song")
+require_relative ("party")
+
+
 class Room
 
   attr_reader :room_name, :spaces, :current_guests_fav_songs
@@ -7,43 +12,37 @@ class Room
     @room_name = room_name
     @spaces = spaces
     @playlist = []
-    @current_guests = []
-    @current_guests_fav_songs = []
-    self.update_fav_songs
+    @current_guests = [] #methods below based on this being individual guests not party
+    #@current_guests_fav_songs = []
+    #self.update_fav_songs
   end
 
   def add_song(song)
     @playlist << song
     @playlist.flatten
-    self.update_fav_songs
-    self.current_guests_fav_songs.uniq! ###will need to update room when new guests also
+    #self.update_fav_songs
+    #self.current_guests_fav_songs.uniq! ###will need to update room when new guests also
   end
 
-  def update_fav_songs
-    @current_guests.each {|guest| @current_guests_fav_songs << guest.fav_song}
+  # def update_fav_songs()
+  #   @current_guests.each {|guest| @current_guests_fav_songs << guest.fav_song}
+  # end
+
+  def compare_playlist_to_favs()
+
   end
 
   def play_playlist()
+    @playlist.each {|song| 
+      puts "Everyone sings along to #{song.song_name}"
+      @current_guests.each { |guest|
+        puts guest.song_reaction(song) if guest.fav_song == song 
+       }
+     }
   end
 
-  def compare_playlist_to_favs
-  end
-
+  
 end
 
-# if playlist + current_guests_fav_songs have same
-# then guest.song reaction(song) for each
 
 
-
-# guest.
-# def song_reaction(song)
-#   if song == @fav_song  
-#       "#{@g_name} shouts: 'Yey! #{song} is my favourite song" 
-#   end
-# end
-
-# play each 
-# for each check if is fav
-#   if is then song song_reaction
-# end 
