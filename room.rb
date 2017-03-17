@@ -1,8 +1,3 @@
-require_relative ("guest")
-require_relative ("song")
-require_relative ("party")
-
-
 class Room
 
   attr_reader :room_name, :spaces, :current_guests_fav_songs
@@ -28,10 +23,6 @@ class Room
   #   @current_guests.each {|guest| @current_guests_fav_songs << guest.fav_song}
   # end
 
-  def compare_playlist_to_favs()
-
-  end
-
   def play_playlist()
     @playlist.each {|song| 
       puts "Everyone sings along to #{song.song_name}"
@@ -40,8 +31,6 @@ class Room
        }
      }
   end
-
-  
 end
 
 
