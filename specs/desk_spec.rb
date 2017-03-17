@@ -47,4 +47,12 @@ class TestDesk < Minitest::Test
     assert_equal(true, @desk1.room_available?)
   end
 
+  def test_can_assign_package
+    @desk1.add_package(@package1)
+    @desk1.assign_package(60, @party1)
+
+    assert_equal({60 => 50},@party1.chosen_package)
+  end
+
+
 end

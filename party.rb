@@ -3,11 +3,13 @@
 class Party 
 
   attr_reader :guests, :lowest_wallet
+  attr_accessor :chosen_package
 
   def initialize(guests=[])
     @guests = [guests].flatten
     @lowest_wallet = 0
     self.update_lowest_wallet
+    @chosen_package = {}
   end
 
   def add_guest(guest)

@@ -32,5 +32,10 @@ class Desk
     } 
   end ##blahh ugly
 
+  def assign_package(time, party)
+    party.chosen_package = @available_packages.select {|k,v| k = time}
+  end 
+
+
 end
 
