@@ -23,7 +23,9 @@ class Party
     @lowest_wallet = total_wallet.min || 0
   end
 
-
+  def remove_cash_from_each_guest(amount)
+    @guests.map { |guest| guest.wallet -= amount }
+  end
 
 end
 

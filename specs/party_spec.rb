@@ -44,4 +44,11 @@ class TestParty < Minitest::Test
     assert_equal(0, @party1.lowest_wallet)
   end
 
+  def test_remove_cash_from_guests
+    @party1.add_guest(@guest1)
+    @party1.add_guest(@guest2)
+    @party1.remove_cash_from_each_guest(10)
+    assert_equal(10, @guest1.wallet)
+  end
+
 end
