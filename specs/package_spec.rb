@@ -2,7 +2,7 @@ require ("minitest/autorun")
 require ("minitest/rg")
 require_relative ("../package")
 
-class TestPackages < Minitest::Test
+class TestPackage < Minitest::Test
 
   def setup
     @package1 = Package.new(60, 50)
