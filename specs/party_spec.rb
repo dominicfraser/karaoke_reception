@@ -57,5 +57,10 @@ class TestParty < Minitest::Test
     assert_equal(38, @party1.dutch_pay_wallet)
   end
 
+  def test_remove_guest
+    assert_equal([],@party2.remove_guest(@guest1))
+    assert_equal(0, @party2.lowest_wallet)
+  end 
+
 
 end

@@ -19,6 +19,12 @@ class Party
     self.update_dutch_pay_wallet
   end
 
+  def remove_guest(guest)
+    @guests.delete(guest)
+    self.update_lowest_wallet
+    self.update_dutch_pay_wallet
+    @guests = 0 ? @guests = [] : nil
+  end
 
   def update_lowest_wallet()
     total_wallet = []
