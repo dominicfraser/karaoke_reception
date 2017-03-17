@@ -14,11 +14,13 @@ class TestDesk < Minitest::Test
     @guest1 = Guest.new("Jake",20,@song1)
     @guest2 = Guest.new("Sam",19,@song2)
     @party1 = Party.new()
-    @party2 = Party.new(@guest1)
     @room1 = Room.new("first_room", 3)
+    @desk1 = Desk.new(@room1, 200)
   end
 
-
+  def test_desk_has_cash
+    assert_equal(200, @desk1.cash)
+  end
 
 
 

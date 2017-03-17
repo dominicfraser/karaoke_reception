@@ -1,9 +1,13 @@
 class Desk
 
-  attr_reader
+  attr_reader :rooms, :cash
+  attr_accessor :host_name, :available_packages
 
-  def intialize()
-
+  def initialize(rooms, cash)
+    @rooms = rooms
+    @cash = cash
+    @host_name = ""
+    @available_packages = {}
   end
 
 
