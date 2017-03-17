@@ -23,7 +23,6 @@ class TestDesk < Minitest::Test
     @package1 = Package.new(60, 50)
     @package2 = Package.new(120, 85) 
     @package3 = Package.new(15, 20) 
-
   end
 
   def test_desk_has_cash
