@@ -37,8 +37,8 @@ class Desk
   end 
 
   def can_party_afford?(package, party)
-    if package.cost < party.dutch_pay_wallet
-      ###test dutch_pay_wallet first
+    package.cost < party.dutch_pay_wallet ? true : false
+  end
 
 
 end

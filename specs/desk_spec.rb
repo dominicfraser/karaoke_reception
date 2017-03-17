@@ -21,6 +21,8 @@ class TestDesk < Minitest::Test
     @desk1 = Desk.new([@room1, @room2], 200,@party1)
     @package1 = Package.new(60, 50)
     @package2 = Package.new(120, 85) 
+    @package3 = Package.new(15, 20) 
+
   end
 
   def test_desk_has_cash
@@ -53,12 +55,18 @@ class TestDesk < Minitest::Test
     assert_equal({60 => 50},@party1.chosen_package)
   end
 
-  def test_party_can_afford?
-    @desk1.add_package(@package1)
+  def test_party_cannot_afford
     @party1.add_guest(@guest1)
     @party1.add_guest(@guest2) 
-    assert_equal(false, @desk1.can_party_afford(@package1, @party1))
+    assert_equal(false, @desk1.can_party_afford?(@package1, @party1))
   end
+
+  def test_party_can_afford_true
+      @party1.add_guest(@guest1)
+      @party1.add_guest(@guest2) 
+      assert_equal(true, @desk1.can_party_afford?(@package3, @party1))
+    end
+
 
 
 end
