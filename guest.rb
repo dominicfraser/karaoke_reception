@@ -11,7 +11,7 @@ class Guest
 
   def song_reaction(song)
     if song == @fav_song  
-      "#{@g_name} shouts: 'Yey! This is my favourite song" 
+      "#{@g_name} shouts: 'Yey! #{song} is my favourite song" 
     end
   end
 

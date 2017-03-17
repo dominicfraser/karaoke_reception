@@ -8,6 +8,7 @@ class Room
     @spaces = spaces
     @playlist = []
     @current_guests = []
+    @current_guests_fav_songs = []
   end
 
   def add_song(song)
@@ -15,10 +16,27 @@ class Room
     @playlist.flatten
   end
 
+  def play_playlist()
+    @playlist.each {|song| 
+      if song == @current_guests
+    }
 
 
 
-
-
-
+  end
 end
+
+
+
+
+guest.
+def song_reaction(song)
+  if song == @fav_song  
+    "#{@g_name} shouts: 'Yey! This is my favourite song" 
+  end
+end
+
+play each 
+for each check if is fav
+  if is then song song_reaction
+end 

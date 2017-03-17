@@ -17,7 +17,7 @@ class TestGuest < Minitest::Test
   end
 
   def test_fav_song_reaction
-    assert_equal("Jake shouts: 'Yey! This is my favourite song", @guest1.song_reaction(@song1.song_name))
+    assert_equal("Jake shouts: 'Yey! song1 is my favourite song", @guest1.song_reaction(@song1.song_name))
     assert_nil(nil, @guest1.song_reaction(@song2.song_name))
   end
 

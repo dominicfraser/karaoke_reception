@@ -21,14 +21,21 @@ class TestParty < Minitest::Test
   end
 
 
-def test_room_has_spaces
-  assert_equal(3, @room1.spaces)
-end
+  def test_room_has_spaces
+    assert_equal(3, @room1.spaces)
+  end
 
-def test_add_song_to_playlist
-  @room1.add_song(@song1)
-  assert_equal([@song1],@room1.playlist)
-end
+  def test_add_song_to_playlist
+    @room1.add_song(@song1)
+    assert_equal([@song1],@room1.playlist)
+  end
+
+  def test_play_all_songs
+    @room1.add_song(@song1)
+    @room1.add_song(@song2)
+    assert_equal()
+
+  end
 
 
 
