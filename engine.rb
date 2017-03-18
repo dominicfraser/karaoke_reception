@@ -1,3 +1,5 @@
+require_relative ("nav")
+
 class Engine 
   def initialize(screens, host_name)
     @screens = screens
@@ -5,8 +7,8 @@ class Engine
   end
 
   def start()
-    current_screen = @screen.opening_screen()
-    last_screen = @screens.next_screen("completed")
+    current_screen = @screens.opening_screen()
+    last_screen = @screens.next_screen("exit")
 
     while current_screen != last_screen
       next_screen_name = current_screen.enter(@host_name)

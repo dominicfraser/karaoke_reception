@@ -1,9 +1,17 @@
+require_relative ("log_on")
+require_relative ("main_screen")
+require_relative ("check_in")
+require_relative ("check_out")
+require_relative ("exit")
+
+
 class Nav
-  @@scene_options = {
+  @@screen_options = {
     "log_on" => LogOn.new(),
-    "main" => Main.new(),
+    "main_screen" => MainScreen.new(),
     "check_in" => CheckIn.new(),
-    "check_out" => CheckOut.new()
+    "check_out" => CheckOut.new(),
+    "exit" => Exit.new()
   }
 
   def initialize(start_screen)
@@ -19,3 +27,4 @@ class Nav
     return next_screen(@start_screen)
   end
 end
+

@@ -4,6 +4,13 @@ require_relative ("party")
 require_relative ("room")
 require_relative ("desk")
 require_relative ("package")
+require_relative ("nav")
+require_relative ("engine")
+
+
+
+
+
 
 class Runner
 
@@ -61,3 +68,7 @@ end
 @runner1 = Runner.new()
 
 host_name = gets.strip.downcase
+
+nav1 = Nav.new("log_on")
+engine1 = Engine.new(nav1, host_name)
+engine1.start() 
