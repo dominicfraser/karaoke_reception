@@ -7,7 +7,7 @@ require_relative ("package")
 
 class Runner
 
-  attr_reader
+  attr_reader :room1
 
   def initialize()
     @room1 = Room.new("first_room", 3)
@@ -59,3 +59,5 @@ end
 #some way of viewing then adding party to desk
 
 @runner1 = Runner.new()
+
+host_name = gets.strip.downcase

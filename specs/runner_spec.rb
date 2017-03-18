@@ -6,7 +6,7 @@ require_relative ("../runner")
 class TestRunner < Minitest::Test
 
   def setup
-    #@runner1 = Runner.new()
+    @runner1 = Runner.new()
   end
 
 
