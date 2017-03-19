@@ -18,7 +18,7 @@ class CheckOut
 
       if input2.include? "1"
 
-        $setup1.desk.checkout_party($setup1.party1, $setup1.room1)
+        $setup1.desk.checkout_current_party($setup1.room1)
 
 
         puts "Room 1 checked out \n\n"
@@ -27,9 +27,10 @@ class CheckOut
       end 
 
 
-      # desk.checkout_party(party, room)
-      #   return if room.current_guests != party.guests
-      #   room.current_guests.clear
+      # desk.checkout_current_party(room)
+      #   current = self.current_party(room)
+      #   self.checkout_party(current, room)
+      #   return room.current_guests
       # end
 
 
