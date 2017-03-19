@@ -27,10 +27,12 @@ class Setup
     @guest8 = Guest.new("Guest8",10,@song1)
     @guest9 = Guest.new("Guest9",10,@song9)
     @guest10 = Guest.new("Guest10",10,@song9)
- @party1 = Party.new([@guest1,@guest2,@guest3])
- @party2 = Party.new([@guest4,@guest5,@guest6,@guest7,@guest8,@guest9,@guest10])
+    @party1 = Party.new([@guest1,@guest2,@guest3])
+    @party2 = Party.new([@guest4,@guest5,@guest6,@guest7,@guest8,@guest9,@guest10])
 
- @desk = Desk.new([@room1, @room2, @room3], 200, [@party1, @party2])
+    @desk = Desk.new([@room1, @room2, @room3], 200, [@party1, @party2])
+
+
     @package1 = Package.new(60, 50)
     @package2 = Package.new(30, 30) 
     @package3 = Package.new(15, 20) 
@@ -50,14 +52,9 @@ class Setup
     @room1.add_song([@song1,@song2,@song3,@song4,@song5,@song6,@song7,@song8,@song9,@song10])
     @room2.add_song([@song1,@song2,@song3,@song4,@song5,@song6,@song7,@song8,@song9,@song10])
     @room3.add_song([@song1,@song2,@song3,@song4,@song5,@song6,@song7,@song8,@song9,@song10])
-
-
   end
 
 end
 
 $setup1 = Setup.new()
-$setup1.desk.assign_to_room($setup1.party1, $setup1.room1)
-# def assign_to_room(party, room)
-#   party.guests.each {|guest| room.current_guests << guest}
-# end
+#$setup1.desk.assign_to_room($setup1.party1, $setup1.room1)
