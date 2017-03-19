@@ -6,9 +6,10 @@ class CheckOut
 
     room1_guests = $setup1.room1.current_guests
 
-    puts "Room 1 contains:" 
-    puts room1_guests
 
+    puts "Room 1 contains:" 
+    room1_guests.each {|guest| print "#{guest.g_name} "} 
+    puts "\n \n"
 
     puts "would you like to check out guest or go BACK to main screen?"
     input = gets.strip.downcase
