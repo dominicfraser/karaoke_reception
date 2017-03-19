@@ -68,6 +68,7 @@ class TestDesk < Minitest::Test
   def test_assign_party_to_room
     @desk1.assign_to_room(@party1, @room1)
     assert_equal([@guest1,@guest2],@room1.current_guests)
+    assert_equal([],@desk1.today_parties)
   end
 
   def test_checkout_party_that_is_there

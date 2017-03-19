@@ -48,6 +48,7 @@ class Desk
 
   def assign_to_room(party, room)
     party.guests.each {|guest| room.current_guests << guest}
+    self.today_parties.delete(party)
   end
 
   def checkout_party(party, room)
