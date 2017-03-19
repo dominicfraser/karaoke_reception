@@ -74,6 +74,6 @@ class Desk
     self.checkout_party(current, room)
     return room.current_guests
   end
-
+  
 end
 
