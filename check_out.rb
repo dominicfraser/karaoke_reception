@@ -1,6 +1,6 @@
 class CheckOut
   def enter(host_name)
-    puts "room status"
+    puts "###### Room Status ######"
     puts "would you like to check out guest or go back to main screen?"
     input = gets.strip.downcase
 

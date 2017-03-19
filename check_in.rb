@@ -1,7 +1,7 @@
 class CheckIn
 
   def enter(host_name)
-    puts "welcome to check in"
+    puts "###### Check In ######"
     puts "would you like to continue or go back to main screen"
     input = gets.strip.downcase
 

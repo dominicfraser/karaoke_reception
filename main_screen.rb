@@ -1,7 +1,7 @@
 class MainScreen
 
   def enter(host_name)
-    puts "welcome to main"
+    puts "###### Main ######"
     puts "would you like to checkin, checkout, room status, or log off?"
     input = gets.strip.downcase
 
