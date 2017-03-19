@@ -15,8 +15,8 @@ class CheckIn
       party = gets.strip.downcase
       party = party.to_i - 1
       party = $setup1.desk.waiting_parties[party]
-
-      #following packages avail 
+      puts "The following packages are available"
+      self.display_packages 
 
       if $setup1.desk.room_available?(party) == false 
         puts "No room is available at the moment."
@@ -44,7 +44,10 @@ class CheckIn
     end
   end
 
-
+  def display_packages
+    $setup1.desk.available_packages.each {|p_length, cost| 
+      puts "#{p_length} minutes for £#{cost}."}
+  end
 
 
   def display_waiting_parties
@@ -71,9 +74,6 @@ class CheckIn
     room3_spaces = $setup1.room3.spaces 
     room3_guests = $setup1.room3.current_guests.length
     room3_spaces_left = room3_spaces - room3_guests
-
-    
-
     puts "Room 1 has #{room1_spaces_left} spaces." 
     puts "Room 2 has #{room2_spaces_left} spaces."
     puts "Room 3 has #{room3_spaces_left} spaces." 

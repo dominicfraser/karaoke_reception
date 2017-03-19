@@ -11,7 +11,7 @@ require_relative ("engine")
 
 class Setup
 
-  attr_reader :room1, :room2, :room3, :desk, :party1, :party2
+  attr_reader :room1, :room2, :room3, :desk, :party1, :party2, :package1, :package2, :package3
 
   def initialize()
     @room1 = Room.new("first_room", 3)
@@ -39,6 +39,7 @@ class Setup
     @desk.add_package(@package1)
     @desk.add_package(@package2)
     @desk.add_package(@package3)
+    
     @song1 = Song.new("song1",5)
     @song2 = Song.new("song2",10)
     @song3 = Song.new("song3",10)
