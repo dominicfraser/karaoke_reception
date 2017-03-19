@@ -2,13 +2,17 @@ class CheckIn
 
   def enter(host_name)
     puts "###### Check In ######"
-    puts "would you like to continue or go back to main screen"
+    puts "Please choose: \nVIEW WAITING GUESTS or BACK"
     input = gets.strip.downcase
 
     if input.include? "main"
       return "main_screen"
-    elsif input.include? "GAGA"
-      return "log_on"
+    elsif input.include? "view"
+
+
+
+
+      return "main_screen"
     else
       return "check_in"
     end
