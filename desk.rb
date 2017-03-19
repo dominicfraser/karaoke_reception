@@ -46,6 +46,7 @@ class Desk
   end 
 
   def can_party_afford?(package, party)
+    binding.pry
     (package.cost / party.guests.length) < party.dutch_pay_wallet ? true : false
   end
 

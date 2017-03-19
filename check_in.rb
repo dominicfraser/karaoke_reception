@@ -1,3 +1,4 @@
+require "pry"
 class CheckIn
 
   def enter(host_name)
@@ -45,7 +46,7 @@ class CheckIn
           $setup1.desk.take_payment(@party, @package)
           end
         when "2"
-          if $setup1.room1.current_guests.length > 0 || $setup1.room1.spaces < @party.guests.length
+          if $setup1.room2.current_guests.length > 0 || $setup1.room2.spaces < @party.guests.length
             puts "Room Not Suitable"
             return "check_in"
           else
@@ -54,7 +55,7 @@ class CheckIn
           $setup1.desk.take_payment(@party, @package)
           end
         when "3"
-          if $setup1.room1.current_guests.length > 0 || $setup1.room1.spaces < @party.guests.length
+          if $setup1.room3.current_guests.length > 0 || $setup1.room3.spaces < @party.guests.length
             puts "Room Not Suitable"
             return "check_in"
           else
@@ -84,10 +85,10 @@ class CheckIn
   end
 
   def choose_package
-    package = gets.strip.downcase
-    if package == "15" 
+    package = gets.strip.to_i
+    if package == 15 
       @package = $setup1.package1
-    elsif package == "30" 
+    elsif package == 30 
       @package = $setup1.package2
     else
       @package = $setup1.package3
