@@ -25,6 +25,11 @@ class TestDesk < Minitest::Test
     @package3 = Package.new(15, 20) 
   end
 
+  def test_waiting_parties
+    assert_equal([@party1],@desk1.waiting_parties)
+    assert_equal([],@desk1.today_parties)
+  end
+
   def test_desk_has_cash
     assert_equal(200, @desk1.cash)
   end
@@ -68,7 +73,8 @@ class TestDesk < Minitest::Test
   def test_assign_party_to_room
     @desk1.assign_to_room(@party1, @room1)
     assert_equal([@guest1,@guest2],@room1.current_guests)
-    assert_equal([],@desk1.today_parties)
+    assert_equal([],@desk1.waiting_parties)
+    assert_equal([@party1],@desk1.today_parties)
   end
 
   def test_checkout_party_that_is_there
@@ -77,16 +83,16 @@ class TestDesk < Minitest::Test
     assert_equal([],@room1.current_guests)
   end
 
-  def test_checkout_party_not_there
-    @desk1.assign_to_room(@party1,@room1)
-    @desk1.checkout_party(@party2,@room1)
-    assert_equal([@guest1,@guest2],@room1.current_guests)
-  end
+  # def test_checkout_party_not_there
+  #   @desk1.assign_to_room(@party1,@room1)
+  #   @desk1.checkout_party(@party2,@room1)
+  #   assert_equal([@guest1,@guest2],@room1.current_guests)
+  # end
 
-  def test_find_current_room_party
-    @desk1.assign_to_room(@party1,@room1)
-    assert_equal(@party1, @desk1.current_party(@room1))
-  end
+  # def test_find_current_room_party
+  #   @desk1.assign_to_room(@party1,@room1)
+  #   assert_equal(@party1, @desk1.current_party(@room1))
+  # end
 
   def test_checkout_current_party
     @desk1.assign_to_room(@party1,@room1)
