@@ -26,6 +26,8 @@ class CheckIn
         puts @package.cost
         puts $setup1.desk.can_party_afford?(@package, @party)
       self.can_chosen_party_afford_package?
+      ##-->this doesnt exit to main when false?
+
 
       ###ROOM SELECTION AND PAYMENT
       if $setup1.desk.room_available?(@party) == false 

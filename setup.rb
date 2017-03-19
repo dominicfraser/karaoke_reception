@@ -58,4 +58,4 @@ class Setup
 end
 
 $setup1 = Setup.new()
-#$setup1.desk.assign_to_room($setup1.party1, $setup1.room1)
+$setup1.desk.assign_to_room($setup1.party1, $setup1.room1)
