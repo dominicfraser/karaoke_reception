@@ -1,15 +1,15 @@
 require "pry"
 class Desk
 
-  attr_reader :rooms, :cash, :parties
+  attr_reader :rooms, :cash, :today_parties
   attr_accessor :host_name, :available_packages
 
-  def initialize(rooms, cash, parties=[])
+  def initialize(rooms, cash, today_parties=[])
     @rooms = rooms #array
     @cash = cash
     @host_name = ""
     @available_packages = {}
-    @parties = parties #array
+    @today_parties = today_parties #array
     #self.set_host_name  can't run tests with this here
   end
 
@@ -55,8 +55,19 @@ class Desk
     room.current_guests.clear
   end
 
-  # def current_party
+  def current_party(room)
+    self.today_parties.each {|party|
+      if party.guests.include? room.current_guests[0]
+        return party
+      end
+    }
+  end
 
+  def checkout_current_party(room)
+    current = self.current_party(room)
+    self.checkout_party(current, room)
+    return room.current_guests
+  end
 
 end
 

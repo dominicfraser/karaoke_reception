@@ -82,9 +82,14 @@ class TestDesk < Minitest::Test
     assert_equal([@guest1,@guest2],@room1.current_guests)
   end
 
-  # def test_find_current_room_party
-  #   @desk1.assign_to_room(@party1,@room1)
-  #   assert_equal(@party1, @room1.current_party)
-  # end
+  def test_find_current_room_party
+    @desk1.assign_to_room(@party1,@room1)
+    assert_equal(@party1, @desk1.current_party(@room1))
+  end
+
+  def test_checkout_current_party
+    @desk1.assign_to_room(@party1,@room1)
+    assert_equal([], @desk1.checkout_current_party(@room1))
+  end
 
 end
