@@ -1,3 +1,4 @@
+require "pry"
 require_relative ("guest")
 require_relative ("song")
 require_relative ("party")
@@ -10,7 +11,7 @@ require_relative ("engine")
 
 class Setup
 
-  attr_reader :room1
+  attr_reader :room1, :desk, :party1
 
   def initialize()
     @room1 = Room.new("first_room", 3)
@@ -36,22 +37,27 @@ class Setup
     @room1.add_song([@song1,@song2,@song3,@song4,@song5,@song6,@song7,@song8,@song9,@song10])
     @room2.add_song([@song1,@song2,@song3,@song4,@song5,@song6,@song7,@song8,@song9,@song10])
     @room3.add_song([@song1,@song2,@song3,@song4,@song5,@song6,@song7,@song8,@song9,@song10])
+
+    @guest1 = Guest.new("Guest1",10,@song1)
+    @guest2 = Guest.new("Guest2",5,@song1)
+    @guest3 = Guest.new("Guest3",10,@song3)
+    @guest4 = Guest.new("Guest4",14,@song4)
+    @guest5 = Guest.new("Guest5",8,@song5)
+    @guest6 = Guest.new("Guest6",20,@song6)
+    @guest7 = Guest.new("Guest7",20,@song1)
+    @guest8 = Guest.new("Guest8",10,@song1)
+    @guest9 = Guest.new("Guest9",10,@song9)
+    @guest10 = Guest.new("Guest10",10,@song9)
+
+    @party1 = Party.new([@guest1,@guest2,@guest3])
+    @party2 = Party.new([@guest4,@guest5,@guest6,@guest7,@guest8,@guest9,@guest10])
   end
 
 end
 
-@guest1 = Guest.new("Guest1",10,@song1)
-@guest2 = Guest.new("Guest2",5,@song1)
-@guest3 = Guest.new("Guest3",10,@song3)
-@guest4 = Guest.new("Guest4",14,@song4)
-@guest5 = Guest.new("Guest5",8,@song5)
-@guest6 = Guest.new("Guest6",20,@song6)
-@guest7 = Guest.new("Guest7",20,@song1)
-@guest8 = Guest.new("Guest8",10,@song1)
-@guest9 = Guest.new("Guest9",10,@song9)
-@guest10 = Guest.new("Guest10",10,@song9)
+$setup1 = Setup.new()
+$setup1.desk.assign_to_room($setup1.party1, $setup1.room1)
 
-@party1 = Party.new([@guest1,@guest2,@guest3])
-@party2 = Party.new([@guest4,@guest5,@guest6,@guest7,@guest8,@guest9,@guest10])
-
-#some way of viewing then adding party to desk
+# def assign_to_room(party, room)
+#   party.guests.each {|guest| room.current_guests << guest}
+# end

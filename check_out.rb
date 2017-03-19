@@ -4,7 +4,11 @@ class CheckOut
   def enter(host_name)
     puts "###### Room Status ######"
 
-    puts room1.current_guests
+    room1_guests = $setup1.room1.current_guests
+
+    puts "Room 1 contains:" 
+    puts room1_guests
+
 
     puts "would you like to check out guest or go BACK to main screen?"
     input = gets.strip.downcase

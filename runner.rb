@@ -1,6 +1,6 @@
 require_relative "setup"
 
-@setup1 = Setup.new()
+
 
 puts "please enter host ID"
 host_name = gets.strip.downcase
