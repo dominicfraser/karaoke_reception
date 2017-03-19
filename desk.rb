@@ -56,7 +56,8 @@ class Desk
   end
 
   def checkout_party(party, room)
-    #return if room.current_guests != party.guests
+    # return if room.current_guests != party.guests    
+    #see test spec for problem
     room.current_guests.clear
   end
 

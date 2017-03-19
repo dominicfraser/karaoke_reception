@@ -87,12 +87,13 @@ class TestDesk < Minitest::Test
   #   @desk1.assign_to_room(@party1,@room1)
   #   @desk1.checkout_party(@party2,@room1)
   #   assert_equal([@guest1,@guest2],@room1.current_guests)
-  # end
+  # end 
+  ###need assistance - works but guard clause causes object type array.guests error in runner usage
 
-  # def test_find_current_room_party
-  #   @desk1.assign_to_room(@party1,@room1)
-  #   assert_equal(@party1, @desk1.current_party(@room1))
-  # end
+  def test_find_current_room_party
+    @desk1.assign_to_room(@party1,@room1)
+    assert_equal(@party1, @desk1.current_party(@room1))
+  end
 
   def test_checkout_current_party
     @desk1.assign_to_room(@party1,@room1)
