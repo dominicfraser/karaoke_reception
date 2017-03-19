@@ -17,23 +17,20 @@ class CheckOut
       input2 = gets.strip.to_s
 
       if input2.include? "1"
-
         $setup1.desk.checkout_current_party($setup1.room1)
-
-
-        puts "Room 1 checked out \n\n"
-
+        puts "Room 1 CHECKED OUT \n\n"
         self.display_rooms
+      elsif input2.include? "2"
+        $setup1.desk.checkout_current_party($setup1.room2)
+        puts "Room 2 CHECKED OUT \n\n"
+        self.display_rooms
+      elsif input2.include? "3"
+        $setup1.desk.checkout_current_party($setup1.room3)
+        puts "Room 3 CHECKED OUT \n\n"
+        self.display_rooms
+      else
+        "not an option"
       end 
-
-
-      # desk.checkout_current_party(room)
-      #   current = self.current_party(room)
-      #   self.checkout_party(current, room)
-      #   return room.current_guests
-      # end
-
-
 
       return "main_screen"
     else
