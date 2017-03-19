@@ -10,17 +10,29 @@ class CheckIn
     elsif input.include? "view"
       self.display_waiting_parties
       self.display_room_spaces
-      # puts 
-      # puts "Would you like to check in the first party in the queue?"
-      # puts "Please choose: \nYES or NO"
-      # input2 = gets.strip.downcase
+      puts ""
+      puts "Which party would you like to check in?"
+      party = gets.strip.downcase
+      party = party.to_i - 1
+      party = $setup1.desk.waiting_parties[party]
 
-      # if input2.include? "y"
-      #   #try to check in first in queue 
-      #   #move to second pos
-      #   #no spaces at the moment
-      #   #please tell guest 
-      # end
+      #following packages avail 
+
+      if $setup1.desk.room_available?(party) == false 
+        puts "No room is available at the moment."
+      else
+        puts "Which room would you like to assign: 1, 2, or 3?"
+        room_choice = gets.strip.downcase
+        case room_choice
+        when "1"
+          $setup1.desk.assign_to_room(party, $setup1.room1)
+          self.display_waiting_parties
+          self.display_room_spaces
+        when "2"
+          puts "not yet"
+        end
+      end
+
 
 
       return "main_screen"
