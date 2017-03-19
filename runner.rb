@@ -67,6 +67,7 @@ end
 
 @runner1 = Runner.new()
 
+puts "please eneter host ID"
 host_name = gets.strip.downcase
 
 nav1 = Nav.new("log_on")
