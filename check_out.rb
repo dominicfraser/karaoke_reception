@@ -4,7 +4,7 @@ class CheckOut
   def enter(host_name)
     puts "###### Room Status ######"
 
-    self.display_room1
+    self.display_rooms
     puts "\n \n"
 
     puts "would you like to check out guest or go BACK to main screen?"
@@ -21,12 +21,19 @@ class CheckOut
 
   end
 
-  def display_room1
+  def display_rooms
     room1_guests = $setup1.room1.current_guests
-
+    room2_guests = $setup1.room2.current_guests
+    room3_guests = $setup1.room3.current_guests
 
     puts "Room 1 contains:" 
     room1_guests.each {|guest| print "#{guest.g_name} "} 
+    puts
+    puts "Room 2 contains:" 
+    room2_guests.each {|guest| print "#{guest.g_name} "} 
+    puts
+    puts "Room 3 contains:" 
+    room3_guests.each {|guest| print "#{guest.g_name} "} 
   end
 
 

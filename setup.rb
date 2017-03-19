@@ -11,7 +11,7 @@ require_relative ("engine")
 
 class Setup
 
-  attr_reader :room1, :desk, :party1
+  attr_reader :room1, :room2, :room3, :desk, :party1, :party2
 
   def initialize()
     @room1 = Room.new("first_room", 3)
@@ -57,7 +57,7 @@ end
 
 $setup1 = Setup.new()
 $setup1.desk.assign_to_room($setup1.party1, $setup1.room1)
-
+$setup1.desk.assign_to_room($setup1.party2, $setup1.room3)
 # def assign_to_room(party, room)
 #   party.guests.each {|guest| room.current_guests << guest}
 # end
