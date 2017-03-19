@@ -19,7 +19,7 @@ class TestDesk < Minitest::Test
     @party2 = Party.new()
     @room1 = Room.new("first_room", 3)
     @room2 = Room.new("first_room", 3)
-    @desk1 = Desk.new([@room1, @room2], 200,@party1)
+    @desk1 = Desk.new([@room1, @room2], 200,[@party1])
     @package1 = Package.new(60, 50)
     @package2 = Package.new(120, 85) 
     @package3 = Package.new(15, 20) 
@@ -38,11 +38,11 @@ class TestDesk < Minitest::Test
     @room1.current_guests = [1,2,3]
     @room2.current_guests = [1,2,3]
 
-    assert_equal(false, @desk1.room_available?)
+    assert_equal(false, @desk1.room_available?(@party1))
   end
 
   def test_is_room_available_when_empty
-    assert_equal(true, @desk1.room_available?)
+    assert_equal(true, @desk1.room_available?(@party1))
   end
 
   def test_can_assign_package
@@ -81,5 +81,10 @@ class TestDesk < Minitest::Test
     @desk1.checkout_party(@party2,@room1)
     assert_equal([@guest1,@guest2],@room1.current_guests)
   end
+
+  # def test_find_current_room_party
+  #   @desk1.assign_to_room(@party1,@room1)
+  #   assert_equal(@party1, @room1.current_party)
+  # end
 
 end

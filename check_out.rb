@@ -13,11 +13,24 @@ class CheckOut
     if input.include? "back"
       return "main_screen"
     elsif input.include? "out"
+      puts "Would you like to check out Room 1, 2, or 3?"
+      input2 = gets.strip.to_s
 
-      puts "checked out"
+      if input2.include? "1"
+
+        $setup1.desk.checkout_party($setup1.party1, $setup1.room1)
 
 
+        puts "Room 1 checked out \n\n"
 
+        self.display_rooms
+      end 
+
+
+      # desk.checkout_party(party, room)
+      #   return if room.current_guests != party.guests
+      #   room.current_guests.clear
+      # end
 
 
 

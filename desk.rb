@@ -1,15 +1,15 @@
 require "pry"
 class Desk
 
-  attr_reader :rooms, :cash
+  attr_reader :rooms, :cash, :parties
   attr_accessor :host_name, :available_packages
 
-  def initialize(rooms, cash, party)
-    @rooms = rooms
+  def initialize(rooms, cash, parties=[])
+    @rooms = rooms #array
     @cash = cash
     @host_name = ""
     @available_packages = {}
-    @party = party
+    @parties = parties #array
     #self.set_host_name  can't run tests with this here
   end
 
@@ -22,9 +22,9 @@ class Desk
     @available_packages[package.p_length] = package.cost
   end
 
-  def room_available?
+  def room_available?(new_party)
     @rooms.each { |room| 
-      if (room.spaces - room.current_guests.length) < @party.guests.length
+      if (room.spaces - room.current_guests.length) < new_party.guests.length
         return false
       else
         return true
@@ -54,6 +54,8 @@ class Desk
     return if room.current_guests != party.guests
     room.current_guests.clear
   end
+
+  # def current_party
 
 
 end
