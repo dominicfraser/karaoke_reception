@@ -5,9 +5,9 @@ class CheckOut
     puts "###### Room Status ######"
 
     self.display_rooms
-    puts "\n \n"
+    puts "\n### CHECK OUT ### \n"
 
-    puts "CHECK OUT a party or go BACK?"
+    puts "CHECK OUT a party or go BACK to main?"
     input = gets.strip.downcase
 
     if input.include? "back"
@@ -31,6 +31,8 @@ class CheckOut
       else
         "not an option"
       end 
+      puts "\nPress ENTER to return to main screen"
+      go_on = gets.strip
 
       return "main_screen"
     else

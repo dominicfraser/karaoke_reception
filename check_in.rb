@@ -4,11 +4,12 @@ class CheckIn
     puts "###### Check In ######"
     puts "Please choose: \nVIEW WAITING GUESTS or BACK"
     input = gets.strip.downcase
-
+    puts ""
     if input.include? "main"
       return "main_screen"
     elsif input.include? "view"
       self.display_waiting_parties
+      puts ""
       self.display_room_spaces
       puts ""
       ###PARTY SELCTION
@@ -22,13 +23,11 @@ class CheckIn
       puts "Which package would the guest like: 15, 30, or 60?"
       self.choose_package
 
-        puts @party.dutch_pay_wallet
-        puts @package.cost
-        puts $setup1.desk.can_party_afford?(@package, @party)
-      self.can_chosen_party_afford_package?
-      ##-->this doesnt exit to main when false?
-
-
+      ###CAN THEY AFFORD IT?
+      if $setup1.desk.can_party_afford?(@package, @party) == false
+        puts "The group does not have enough money for that package\n"
+        return "check_in"
+      else
       ###ROOM SELECTION AND PAYMENT
       if $setup1.desk.room_available?(@party) == false 
         puts "No room is available at the moment."
@@ -37,19 +36,35 @@ class CheckIn
         room_choice = gets.strip.downcase
         case room_choice
         when "1"
+          if $setup1.room1.current_guests.length > 0 || $setup1.room1.spaces < @party.guests.length
+            puts "Room Not Suitable"
+            return "check_in"
+          else
           $setup1.desk.assign_to_room(@party, $setup1.room1)
           puts "Party assigned to Room 1"
           $setup1.desk.take_payment(@party, @package)
+          end
         when "2"
+          if $setup1.room1.current_guests.length > 0 || $setup1.room1.spaces < @party.guests.length
+            puts "Room Not Suitable"
+            return "check_in"
+          else
           $setup1.desk.assign_to_room(@party, $setup1.room2)
           puts "Party assigned to Room 2"
           $setup1.desk.take_payment(@party, @package)
+          end
         when "3"
+          if $setup1.room1.current_guests.length > 0 || $setup1.room1.spaces < @party.guests.length
+            puts "Room Not Suitable"
+            return "check_in"
+          else
           $setup1.desk.assign_to_room(@party, $setup1.room3)
           puts "Party assigned to Room 3"
           $setup1.desk.take_payment(@party, @package)
+          end
         end
       end
+    end
 
 
 
@@ -59,6 +74,8 @@ class CheckIn
     end
   end
 
+
+  ###CLASS METHODS
   def can_chosen_party_afford_package?
     if $setup1.desk.can_party_afford?(@package, @party) == false
       puts "The group does not have enough money for that package"

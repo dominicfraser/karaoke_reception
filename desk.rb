@@ -16,8 +16,10 @@ class Desk
   end
 
   def set_host_name
-    puts "Please enter your name: "
-    @host_name = gets.strip.capitalize
+    puts "Please enter HOST ID:"
+    host_name = gets.strip.downcase
+    puts "Welcome #{host_name.upcase}!"
+    @host_name = host_name
   end
 
   def add_package(package)
