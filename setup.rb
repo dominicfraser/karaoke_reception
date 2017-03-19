@@ -33,13 +33,13 @@ class Setup
     @desk = Desk.new([@room1, @room2, @room3], 200, [@party1, @party2])
 
 
-    @package1 = Package.new(60, 50)
-    @package2 = Package.new(30, 30) 
-    @package3 = Package.new(15, 20) 
+    @package1 = Package.new(60, 5000)
+    @package2 = Package.new(30, 3000) 
+    @package3 = Package.new(15, 2000) 
     @desk.add_package(@package1)
     @desk.add_package(@package2)
     @desk.add_package(@package3)
-    
+
     @song1 = Song.new("song1",5)
     @song2 = Song.new("song2",10)
     @song3 = Song.new("song3",10)
