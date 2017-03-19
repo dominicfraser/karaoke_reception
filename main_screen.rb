@@ -2,7 +2,7 @@ class MainScreen
 
   def enter(host_name)
     puts "###### Main ######"
-    puts "would you like to checkin, checkout, room status, or log off?"
+    puts "Please choose: \nCHECK IN, CHECK OUT, ROOM STATUS, or LOG OFF?"
     input = gets.strip.downcase
 
     if input.include? "in"
