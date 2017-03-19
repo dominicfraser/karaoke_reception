@@ -13,6 +13,8 @@ class MainScreen
       return "check_out"
     elsif input.include? "off"
       return "log_on"
+    else
+      return "main_screen"
     end
 
   end

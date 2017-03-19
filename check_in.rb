@@ -9,6 +9,8 @@ class CheckIn
       return "main_screen"
     elsif input.include? "GAGA"
       return "log_on"
+    else
+      return "check_in"
     end
   end
 

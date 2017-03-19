@@ -6,9 +6,10 @@ class CheckOut
 
     if input.include? "main"
       return "main_screen"
-    elsif
-      input.include? "GAGA"
+    elsif input.include? "GAGA"
       return "log_on"
+    else
+      return "check_out"
     end
 
 
