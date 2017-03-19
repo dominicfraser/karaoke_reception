@@ -18,7 +18,7 @@ class Setup
     @room2 = Room.new("second_room", 6)
     @room3 = Room.new("third_room", 10)
     @guest1 = Guest.new("Guest1",10,@song1)
-    @guest2 = Guest.new("Guest2",5,@song1)
+    @guest2 = Guest.new("Guest2",50,@song1)
     @guest3 = Guest.new("Guest3",10,@song3)
     @guest4 = Guest.new("Guest4",14,@song4)
     @guest5 = Guest.new("Guest5",8,@song5)
