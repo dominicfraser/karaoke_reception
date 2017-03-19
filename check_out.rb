@@ -7,13 +7,21 @@ class CheckOut
     self.display_rooms
     puts "\n \n"
 
-    puts "would you like to check out guest or go BACK to main screen?"
+    puts "CHECK OUT a party or go BACK?"
     input = gets.strip.downcase
 
     if input.include? "back"
       return "main_screen"
-    elsif input.include? "GAGA"
-      return "log_on"
+    elsif input.include? "out"
+
+      puts "checked out"
+
+
+
+
+
+
+      return "main_screen"
     else
       return "check_out"
     end
@@ -35,8 +43,5 @@ class CheckOut
     puts "Room 3 contains:" 
     room3_guests.each {|guest| print "#{guest.g_name} "} 
   end
-
-
-
 
 end

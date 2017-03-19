@@ -3,7 +3,7 @@ require_relative "setup"
 
 
 puts "please enter host ID"
-host_name = gets.strip.downcase
+host_name = "temp" #gets.strip.downcase
 puts "Welcome #{host_name.upcase}!"
 
 nav1 = Nav.new("log_on")
