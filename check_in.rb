@@ -26,10 +26,13 @@ class CheckIn
         case room_choice
         when "1"
           $setup1.desk.assign_to_room(party, $setup1.room1)
-          self.display_waiting_parties
-          self.display_room_spaces
+          puts "Party assigned to Room 1"
         when "2"
-          puts "not yet"
+          $setup1.desk.assign_to_room(party, $setup1.room2)
+          puts "Party assigned to Room 2"
+        when "3"
+          $setup1.desk.assign_to_room(party, $setup1.room3)
+          puts "Party assigned to Room 3"
         end
       end
 

@@ -25,13 +25,18 @@ class Desk
   end
 
   def room_available?(new_party)
+    available_rooms = []
     @rooms.each { |room| 
       if (room.spaces - room.current_guests.length) < new_party.guests.length
-        return false
       else
-        return true
+        available_rooms << true
       end
     } 
+    if available_rooms.include? true
+      return true
+    else
+      return false
+    end
   end ##blahh ugly
 
   def assign_package(time, party)
@@ -74,6 +79,6 @@ class Desk
     self.checkout_party(current, room)
     return room.current_guests
   end
-  
+
 end
 
