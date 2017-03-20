@@ -3,6 +3,7 @@ class CheckIn
 
   def enter(host_name)
     puts "###### Check In ######"
+    puts "Cash Drawer: £#{$setup1.desk.cash}"
     puts "Please choose: \nVIEW WAITING GUESTS or BACK"
     input = gets.strip.downcase
     puts ""
