@@ -7,7 +7,7 @@ class CheckIn
     puts "Please choose: \nVIEW WAITING GUESTS or BACK"
     input = gets.strip.downcase
     puts ""
-    if input.include? "main"
+    if input.include? "back"
       return "main_screen"
     elsif input.include? "view"
       self.display_waiting_parties
@@ -88,11 +88,11 @@ class CheckIn
   def choose_package
     package = gets.strip.to_i
     if package == 15 
-      @package = $setup1.package1
+      @package = $setup1.package3
     elsif package == 30 
       @package = $setup1.package2
     else
-      @package = $setup1.package3
+      @package = $setup1.package1
     end
   end
 
